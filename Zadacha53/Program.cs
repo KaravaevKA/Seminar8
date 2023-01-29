@@ -24,14 +24,14 @@ void FillArray(int [,] matr)
 void ChangeRow(int [,] array)
 {
     int temp = 0;
-    for (int i = 0; i<array.GetLength(0); i++)
+    for (int i = 0; i<array.GetLength(1); i++)
     {
         temp = array[0, i]; 
         array [0, i] = array [array.GetLength(0)-1, i];
         array [array.GetLength(0)-1, i] = temp;
     }
 }
-int[,] array = new int [5,5];
+int[,] array = new int [5,4];
 FillArray(array);
 PrintArray(array);
 Console.WriteLine();
