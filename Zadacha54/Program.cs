@@ -26,25 +26,22 @@ void ChangeRow(int [,] array)
     
     for (int i = 0; i<array.GetLength(0); i++)
     {
-        for (int j =0; j<array.GetLength(1)-1; j++)
+        for (int j =0; j<array.GetLength(1); j++)
         {
-            int temp = 0;
-            if (array[i,j] < array[i, j+1])
+            for (int k = 0; k<array.GetLength(1)-1; k++)
             {
-                temp = array[i,j];
-                array[i,j] = array[i, j+1];
-                array[i, j+1] = temp;
+                
+                if (array[i,k] < array[i, k+1])
+                {
+                    int temp = array[i,k+1];
+                    array[i,k+1] = array[i, k];
+                    array[i, k] = temp;
+                }
             }
-            else if (array[i,0]<array[i,j])
-            {
-                temp = array[i,0];
-                array[i,0] = array[i, j];
-                array[i, j] = temp;
-            }
-            else continue;
         }
     }
 }
+
 int[,] array = new int [4,3];
 FillArray(array);
 PrintArray(array);
